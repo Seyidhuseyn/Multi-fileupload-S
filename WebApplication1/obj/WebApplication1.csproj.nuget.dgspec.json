@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ca.r215.11\\Desktop\\Seyidhuseyn\\Multi-fileupload\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\Asus\\Desktop\\code academy\\Multi-fileupload-S\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ca.r215.11\\Desktop\\Seyidhuseyn\\Multi-fileupload\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\Asus\\Desktop\\code academy\\Multi-fileupload-S\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ca.r215.11\\Desktop\\Seyidhuseyn\\Multi-fileupload\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Desktop\\code academy\\Multi-fileupload-S\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\ca.r215.11\\Desktop\\Seyidhuseyn\\Multi-fileupload\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\ca.r215.11\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ca.r215.11\\Desktop\\Seyidhuseyn\\Multi-fileupload\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\Desktop\\code academy\\Multi-fileupload-S\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Desktop\\code academy\\Multi-fileupload-S\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ca.r215.11\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

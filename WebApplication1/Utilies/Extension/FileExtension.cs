@@ -34,6 +34,19 @@
             
             return  Guid.NewGuid() + oldName + extension;
         }
+         public static string CheckValidate(this IFormFile file, string type, int kb)
+        {
+            string result = "";
+            if (!file.CheckSize(kb))
+            {
+                result += $"{file.FileName} faylinin hecmi {kb} kb-dan artiq olmamalidir";
+            }
+            if (!file.CheckType(type))
+            {
+                result += $" {file.FileName} faylinin tipi yalnishdir";
+            }
+            return result;
+        }
         public static void DeleteFile(this string fileName, string root, string folder)
         {
             string path = Path.Combine(root, folder, fileName);

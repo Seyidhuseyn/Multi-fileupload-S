@@ -38,13 +38,18 @@ namespace WebApplication1.Areas.Manage.Controllers
                 ModelState.AddModelError("Image" , "Shekilin olcusu 200 kb-dan artiq ola bilmez.");
                 return View();
             }
-            //string fileName = Guid.NewGuid().ToString() + (file.FileName.Length>64 ? file.FileName.Substring(0,64) : file.FileName);
             string fileName = Guid.NewGuid().ToString() + file.FileName;
             using (var stream = new FileStream(Path.Combine(_env.WebRootPath, "assets", "images", "slider", fileName), FileMode.Create))
             {
                 file.CopyTo(stream);
             }
-            Slider slider = new Slider { Description = sliderVM.Description, Order = sliderVM.Order, PrimaryTitle = sliderVM.PrimaryTitle, SecondaryTitle = sliderVM.SecondaryTitle, ImageUrl=fileName };
+            Slider slider = new Slider { 
+                Description = sliderVM.Description, 
+                Order = sliderVM.Order, 
+                PrimaryTitle = sliderVM.PrimaryTitle, 
+                SecondaryTitle = sliderVM.SecondaryTitle, 
+                ImageUrl=fileName 
+            };
             if (_context.Sliders.Any(s => s.Order == slider.Order))
             {
                 ModelState.AddModelError("Order", $"{slider.Order} sirasinda artiq slider movcuddur.");
@@ -59,24 +64,32 @@ namespace WebApplication1.Areas.Manage.Controllers
             if (id == null || id == 0) return BadRequest();
             Slider slider = _context.Sliders.Find(id);
             if (slider is null) return NotFound();
+            //UpdateSliderVM updateSlider = new UpdateSliderVM
+            //{
+            //    Id= slider.Id,
+            //    PrimaryTitle = slider.PrimaryTitle,
+            //    SecondaryTitle = slider.SecondaryTitle,
+            //    Description = slider.Description,
+            //    Order = slider.Order
+            //};
             return View(slider);
         }
         [HttpPost]
-        public IActionResult Update(int? id, Slider slider)
+        public IActionResult Update(int? id, UpdateSliderVM updateSlider)
         {
-            if (id == null || id == 0 || id!=slider.Id || slider is null) return BadRequest();
+            if (id == null || id == 0 || id!= updateSlider.Id || updateSlider is null) return BadRequest();
             if (!ModelState.IsValid) return View();
-            Slider anotherSlider = _context.Sliders.FirstOrDefault(s=>s.Order==slider.Order);
+            Slider anotherSlider = _context.Sliders.FirstOrDefault(s=>s.Order== updateSlider.Order);
             if (anotherSlider != null)
             {
                 anotherSlider.Order = _context.Sliders.Find(id).Order;
             }
-            Slider exist = _context.Sliders.Find(slider.Id);
-            exist.Order = slider.Order;
-            exist.Description = slider.Description;
-            exist.PrimaryTitle= slider.PrimaryTitle;
-            exist.SecondaryTitle= slider.SecondaryTitle;
-            exist.ImageUrl= slider.ImageUrl;
+            Slider exist = _context.Sliders.Find(updateSlider.Id);
+            exist.Order = updateSlider.Order;
+            exist.Description = updateSlider.Description;
+            exist.PrimaryTitle= updateSlider.PrimaryTitle;
+            exist.SecondaryTitle= updateSlider.SecondaryTitle;
+            exist.ImageUrl= updateSlider.ImageUrl;
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
